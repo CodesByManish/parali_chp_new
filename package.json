@@ -1,0 +1,36 @@
+{
+  "name": "modbustest",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-exe": "pkg ." 
+  },
+  "bin": {
+    "trippler4": "index.js"
+  },
+  "pkg": {
+    "scripts": [
+      "index.js",
+      "node_modules/**/*.js"
+    ],
+    "assets": [
+      "node_modules/@serialport/**/*.node",
+      "node_modules/serialport/**/*.node",
+      "node_modules/node-gyp-build/**/*.node" 
+    ],
+    "targets": [
+      "node14-windows-x64" 
+    ],
+    "outputPath": "dist" 
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@serialport/parser-readline": "^13.0.0",
+    "modbus-serial": "^8.0.21-no-serial-port",
+    "serialport": "^13.0.0",
+    "ws": "^8.18.3"
+  }
+}
