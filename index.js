@@ -16,7 +16,7 @@ const quantity = 8;
 const pollingInterval = 1000; // Poll every 1 second
 
 // --- RS232 Serial Port Configuration ---
-const comPort = "COM1"; // Make sure COM1 is correct (use Device Manager)
+const comPort = "COM2"; // Make sure COM1 is correct (use Device Manager)
 const baudRate = 2400;
 let serialPort;
 let parser;
