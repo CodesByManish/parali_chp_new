@@ -7,7 +7,7 @@ const WebSocket = require('ws');
 
 // --- Modbus Configuration ---
 const client = new ModbusRTU();
-const ipAddress = "192.168.200.34"; // Replace with your device's IP
+const ipAddress = "192.168.200.35"; // Replace with your device's IP
 //const ipAddress = "192.168.100.1"; // Replace with your device's IP
 const modbusPort = 502; // Modbus TCP port
 const unitId = 1;
