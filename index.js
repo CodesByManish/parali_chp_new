@@ -13,7 +13,7 @@ const modbusPort = 502; // Modbus TCP port
 const unitId = 1;
 const startAddress = 0;
 const quantity = 8;
-const pollingInterval = 100; // Poll every 1 second
+const pollingInterval = 1000; // Poll every 1 second
 
 // --- RS232 Serial Port Configuration ---
 const comPort = "COM2"; // Make sure COM1 is correct (use Device Manager)
