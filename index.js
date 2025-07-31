@@ -115,8 +115,8 @@ async function pollModbusData() {
     const inputs = data.data;
     console.log("📊 Modbus Inputs:", inputs);
 
-    const isGrossWeightSignal = inputs[1];
-    const isTareWeightSignal = inputs[2];
+    const isGrossWeightSignal = inputs[3];
+    const isTareWeightSignal = inputs[4];
 
     if (isGrossWeightSignal && lastReceivedWeight !== null) {
       console.log("🚩 Gross Weight Signal detected!");
