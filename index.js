@@ -7,7 +7,7 @@ const WebSocket = require('ws');
 
 // --- Modbus Configuration ---
 const client = new ModbusRTU();
-const ipAddress = "192.168.35.105"; // Replace with your device's IP
+const ipAddress = "192.168.35.106"; // Replace with your device's IP
 //const ipAddress = "192.168.100.1"; // Replace with your device's IP
 const modbusPort = 502; // Modbus TCP port
 const unitId = 1;
@@ -115,8 +115,8 @@ async function pollModbusData() {
     const inputs = data.data;
     console.log("📊 Modbus Inputs:", inputs);
 
-    const isGrossWeightSignal = inputs[3];
-    const isTareWeightSignal = inputs[4];
+    const isGrossWeightSignal = inputs[1];
+    const isTareWeightSignal = inputs[2];
 
     if (isGrossWeightSignal && lastReceivedWeight !== null) {
       console.log("🚩 Gross Weight Signal detected!");
