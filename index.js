@@ -78,7 +78,7 @@ function initializeSerialPort() {
       const parsedWeight = parseFloat(match[0]);
       lastReceivedWeight = parsedWeight;
       console.log(`📦 RS232 Parsed Weight: ${lastReceivedWeight.toFixed(2)}`);
-      broadcastToClients({ type: 'weightUpdate', value: lastReceivedWeight.toFixed(2) });
+      broadcastToClients({ type: 'weightUpdate', value: lastReceivedWeight.toFixed(2)/100 });
     } else {
       console.warn(`⚠️ Could not extract weight from RS232 data: "${data.trim()}"`);
     }
@@ -115,17 +115,17 @@ async function pollModbusData() {
     const inputs = data.data;
     console.log("📊 Modbus Inputs:", inputs);
 
-    const isGrossWeightSignal = inputs[3];
-    const isTareWeightSignal = inputs[4];
+    const isGrossWeightSignal = inputs[1];
+    const isTareWeightSignal = inputs[2];
 
     if (isGrossWeightSignal && lastReceivedWeight !== null) {
       console.log("🚩 Gross Weight Signal detected!");
-      broadcastToClients({ type: 'signalTrigger', signal: 'gross', weight: lastReceivedWeight.toFixed(2) });
+      broadcastToClients({ type: 'signalTrigger', signal: 'gross', weight: lastReceivedWeight.toFixed(2)/100 });
     }
 
     if (isTareWeightSignal && lastReceivedWeight !== null) {
       console.log("🚩 Tare Weight Signal detected!");
-      broadcastToClients({ type: 'signalTrigger', signal: 'tare', weight: lastReceivedWeight.toFixed(2) });
+      broadcastToClients({ type: 'signalTrigger', signal: 'tare', weight: lastReceivedWeight.toFixed(2)/100 });
     }
 
   } catch (err) {
