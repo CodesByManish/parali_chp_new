@@ -7,7 +7,7 @@ const WebSocket = require('ws');
 
 // --- Modbus Configuration ---
 const client = new ModbusRTU();
-const ipAddress = "192.168.35.103"; // Replace with your device's IP
+const ipAddress = "192.168.10.230"; // Replace with your device's IP
 //const ipAddress = "192.168.100.1"; // Replace with your device's IP
 const modbusPort = 502; // Modbus TCP port
 const unitId = 1;
@@ -16,8 +16,8 @@ const quantity = 8;
 const pollingInterval = 1000; // Poll every 1 second
 
 // --- RS232 Serial Port Configuration ---
-const comPort = "COM2"; // Make sure COM1 is correct (use Device Manager)
-const baudRate = 2400;
+const comPort = "COM1"; // Make sure COM1 is correct (use Device Manager)
+const baudRate = 9600;
 let serialPort;
 let parser;
 let lastReceivedWeight = null; // Stores last valid RS232 weight
