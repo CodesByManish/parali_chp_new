@@ -77,7 +77,7 @@ function initializeSerialPort() {
     if (match) {
       const parsedWeight = parseFloat(match[0]);
       lastReceivedWeight = parsedWeight;
-      console.log(`📦 RS232 Parsed Weight: ${lastReceivedWeight.toFixed(2)}`);
+      console.log(`📦 RS232 Parsed Weight: ${lastReceivedWeight.toFixed(2)/100}`);
       broadcastToClients({ type: 'weightUpdate', value: lastReceivedWeight.toFixed(2)/100 });
     } else {
       console.warn(`⚠️ Could not extract weight from RS232 data: "${data.trim()}"`);
